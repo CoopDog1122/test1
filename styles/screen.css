@@ -70,3 +70,55 @@ footer.site-footer{padding:2rem 0; text-align:center; color:var(--muted)}
 }
 
 /* End of custom theme - at least 10 rulesets above */
+
+/* Interactive / fun additions */
+
+/* subtle floating animation for hero title */
+.hero h1{
+  display:inline-block;
+  animation: floaty 6s ease-in-out infinite;
+}
+@keyframes floaty{
+  0%,100%{ transform: translateY(0) }
+  50%{ transform: translateY(-6px) }
+}
+
+/* card micro-interactions: tilt, depth, and accessible focus */
+.card{transform-origin:center; will-change:transform}
+.card:focus-within, .card:hover{outline:none}
+.card:focus-within{box-shadow:0 12px 30px rgba(2,6,23,0.85); transform:translateY(-8px) scale(1.01)}
+.card:active{transform:translateY(-2px) scale(.995)}
+
+/* subtle image zoom on hover (and keyboard focus for accessibility) */
+.card img{transition:transform .6s cubic-bezier(.2,.9,.2,1)}
+.card:hover img, .card:focus-within img{transform:scale(1.06)}
+
+/* fun accent stripe that slides in */
+.card::before{
+  content:'';
+  position:absolute; left:0; top:0; bottom:0; width:6px;
+  background:linear-gradient(180deg,var(--accent),#ffd47a);
+  transform:translateX(-110%);
+  transition:transform .28s ease-out;
+}
+.card:hover::before, .card:focus-within::before{transform:translateX(0%)}
+
+/* make .card position relative so ::before works */
+.card{position:relative}
+
+/* button hover glow */
+.btn{transition:box-shadow .18s ease, transform .12s ease}
+.btn:hover{box-shadow:0 6px 18px rgba(255,183,3,0.16); transform:translateY(-3px)}
+.btn:active{transform:translateY(-1px) scale(.995)}
+
+/* keyboard focus visible for links and buttons */
+a:focus, .btn:focus, .card a:focus{outline:3px solid rgba(255,183,3,0.12); outline-offset:3px}
+
+/* respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce){
+  .hero h1{animation:none}
+  .card img, .card, .btn{transition:none}
+}
+
+/* small helper: clickable card link covers whole card */
+.card-link{display:block; color:inherit; text-decoration:none}
