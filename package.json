@@ -1,4 +1,10 @@
 {
+  "name": "everyday-carry",
+  "private": false,
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"
   },

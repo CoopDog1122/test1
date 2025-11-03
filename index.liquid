@@ -2,6 +2,18 @@
 layout: layout.liquid
 title: 11ty Boilerplate
 ---
+<section class="hero">
+	<div>
+		<h1>Three things I won't leave home without</h1>
+		<p class="muted">A tiny collection of my everyday carry — items that travel with me every time I step outside.</p>
+	</div>
+</section>
 
-<h1>Yet Another 11ty <strong>Boilerplate</strong></h1>
-<img alt="pine" src="/images/wallet.jpg" width="50" />
+<section aria-labelledby="items" class="container">
+	<h2 id="items" class="muted">Essentials</h2>
+	<div class="card-grid">
+		{% itemCard "Phone", "/images/phone.jpg", "/phone/", "My daily lifeline — maps, messages, camera." %}
+		{% itemCard "Wallet", "/images/wallet.jpg", "/wallet/", "Cards, cash, and the little things that keep me going." %}
+		{% itemCard "Keys", "/images/keys.jpg", "/keys/", "Door, bike, and locker keys — can't leave without them." %}
+	</div>
+</section>

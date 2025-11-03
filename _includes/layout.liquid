@@ -12,11 +12,24 @@ title: 11ty Boilerplate
 </head>
 <body>
   <nav>
-    <ul>
-      <li><a href="/" title="Go home">Home</a></li>
-      <li><a href="/about/" title="About the boilerplate">About</a></li>
-    </ul>
-  </nav>
-    {{ content }}
+      <div class="site-header">
+        <a class="site-title" href="/">Everyday Carry</a>
+        <nav class="site-nav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <main class="container">
+        {{ content }}
+      </main>
+
+      <footer class="site-footer">
+        <div class="container">
+          <small>Made with a phone and a pocket — replace the photos with your own original images before submitting.</small>
+        </div>
+      </footer>
 </body>
 </html>
